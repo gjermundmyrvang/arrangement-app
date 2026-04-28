@@ -1,9 +1,11 @@
-import { View } from "react-native";
+import { Pressable, View } from "react-native";
+import Toast from "react-native-toast-message";
 import { Icon, IconButton, Text } from "../components/ui";
 import { useTheme } from "../theme/ThemeProvider";
 
 export default function Index() {
   const theme = useTheme();
+
   return (
     <View
       style={{ backgroundColor: theme.background }}
@@ -34,6 +36,18 @@ export default function Index() {
           style={{ borderColor: theme.border }}
         />
       </View>
+      <Pressable
+        className="bg-black rounded-lg px-6 py-2 mt-4"
+        onPress={() =>
+          Toast.show({
+            type: "info",
+            text1: "Hi! I am an informatiom toast",
+            text2: "Using the react-native-toast-message library",
+          })
+        }
+      >
+        <Text>Open Snack</Text>
+      </Pressable>
     </View>
   );
 }
