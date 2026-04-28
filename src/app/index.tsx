@@ -11,7 +11,7 @@ export default function Index() {
       className="flex-1 justify-center items-center"
     >
       <Text variant="title">Homescreen</Text>
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text>This is the homescreen</Text>
       <View className="flex flex-row items-center gap-2 mt-4">
         <Text className="mr-2">Icons from different families:</Text>
         <Icon family="Ionicons" name="home" />
