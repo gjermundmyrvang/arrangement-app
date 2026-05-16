@@ -19,6 +19,7 @@ export default function SignIn() {
   const pagerRef = useRef<PagerView>(null);
 
   const [currentPage, setCurrentPage] = useState(0);
+  const [scrollEnabled, setScrollEnabled] = useState(true);
 
   const handleGoToPage = (pageNumber: number) => {
     pagerRef.current?.setPage(pageNumber);
@@ -69,7 +70,8 @@ export default function SignIn() {
         ref={pagerRef}
         initialPage={0}
         onPageSelected={(e) => setCurrentPage(e.nativeEvent.position)}
-        scrollEnabled={false}
+        onLayout={() => setScrollEnabled(false)} // Hacky workaround from google
+        scrollEnabled={scrollEnabled}
       >
         <StepOne
           key="step-1"
