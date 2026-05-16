@@ -82,7 +82,7 @@ export default function SignIn() {
           otp={otp}
           setOtp={setOtp}
           onSubmit={verifyOTP}
-          goBack={() => handleGoToPage(1)}
+          goBack={() => handleGoToPage(0)}
         />
       </PagerView>
       <View className="absolute bottom-safe left-0 right-0 flex-row items-center justify-center gap-2">
