@@ -47,8 +47,14 @@ export default function AuthProvider({ children }: PropsWithChildren) {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, newSession) => {
-      setSession(newSession);
+    } = supabase.auth.onAuthStateChange((event, newSession) => {
+      if (event === "TOKEN_REFRESHED") {
+        setSession(newSession);
+      } else if (event === "SIGNED_OUT") {
+        setSession(null);
+      } else {
+        setSession(newSession);
+      }
     });
 
     return () => subscription.unsubscribe();
