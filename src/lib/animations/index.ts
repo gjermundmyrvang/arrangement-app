@@ -1,0 +1,1 @@
+export { useSlideAnimation } from "./slide";
